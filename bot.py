@@ -30,58 +30,54 @@ AUTH_USERS = set(int(x) for x in os.environ.get("AUTH_USERS", "").split( ))
 PROCESS_MAX_TIMEOUT = int(os.environ.get("TIME_LIMIT"))
 ADL_BOT_RQ = {}
 START_TEXT = """
-Hello {} , I'am a simple file or media rename bot with permanent thumbnail support.
-
-Made by @FayasNoushad
+Hello {}\n\nI am a simple file or media Renamer Bot.
+Just Send Me Media or File to Get Started\n\nMade With 💕 By @Tellybots_4u
 """
 HELP_TEXT = """
 <b><u>Rename</u></b>
-➠ Send me any telegram file or media.
-➠ Choose appropriate option.
+✳️ Send me any telegram file or media.
+✳️ Choose appropriate option.
 
 <b><u>Set Thumbnail</u></b>
-➠ Send a photo to make it as custom thumbnail.
+✳️ Send a photo to make it as custom thumbnail.
 
 <b><u>Deleting Thumbnail</u></b>
-➠ Send /delthumb to deleting thumbnail.
+✳️ Send /delthumb to deleting thumbnail.
 
 <b><u>Show Thumbnail</u></b>
-➠ Send /showthumb for view current thumbnail.
-
-Made by @FayasNoushad
+✳️ Send /showthumb for view current thumbnail.
 """
 ABOUT_TEXT = """
-- **Bot :** `Rename Bot`
-- **Creator :** [Fayas](https://telegram.me/TheFayas)
-- **Channel :** [Fayas Noushad](https://telegram.me/FayasNoushad)
-- **Credits :** `Everyone in this journey`
-- **Source :** [Click here](https://github.com/FayasNoushad/Rename-Bot)
-- **Language :** [Python3](https://python.org)
-- **Library :** [Pyrogram v1.2.0](https://pyrogram.org)
-- **Server :** [Heroku](https://heroku.com)
+- **🤖 Bot :** `Rename Bot`\n\n
+- **🤹 Creator :** [Tellybots_4u](https://telegram.me/tellybots_4u)\n\n
+- **📡 Update Channel :** [Tellybots_4u](https://telegram.me/tellybots_4u)\n\n
+- **🎉 Credits :** `Everyone in this journey`\n\n
+- **✴️ Source :** [Click here](https://t.me/tellybots_digital)\n\n
+- **📑 Language :** [Python3](https://python.org)\n\n
+- **📚 Library :** [Pyrogram v1.2.0](https://pyrogram.org)\n\n
+- **✨ Server :** [Heroku](https://heroku.com)\n\n
 """
 START_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('Channel', url='https://telegram.me/FayasNoushad'),
-        InlineKeyboardButton('Feedback', url='https://telegram.me/TheFayas')
+        InlineKeyboardButton('📡 Update Channel', url='https://telegram.me/tellybots_4u'),
+        InlineKeyboardButton('💬 Support Group', url='https://telegram.me/tellybots_support')
         ],[
-        InlineKeyboardButton('Help', callback_data='help'),
-        InlineKeyboardButton('About', callback_data='about'),
-        InlineKeyboardButton('Close', callback_data='close')
+        InlineKeyboardButton('🤹 About', callback_data='about'),
+        InlineKeyboardButton('⛔ Close', callback_data='close')
         ]]
     )
 HELP_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('Home', callback_data='home'),
-        InlineKeyboardButton('About', callback_data='about'),
-        InlineKeyboardButton('Close', callback_data='close')
+        InlineKeyboardButton('🏡 Home', callback_data='home'),
+        InlineKeyboardButton('🤹 About', callback_data='about'),
+        InlineKeyboardButton('⛔ Close', callback_data='close')
         ]]
     )
 ABOUT_BUTTONS = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton('Home', callback_data='home'),
-        InlineKeyboardButton('Help', callback_data='help'),
-        InlineKeyboardButton('Close', callback_data='close')
+        InlineKeyboardButton('🏡 Home', callback_data='home'),
+        InlineKeyboardButton('❔ Help', callback_data='help'),
+        InlineKeyboardButton('⛔ Close', callback_data='close')
         ]]
     )
 
@@ -238,7 +234,7 @@ async def filter(bot, update):
         filename = "None"
     await bot.send_message(
         chat_id=update.chat.id,
-        text=f"<b>File Name</b> : <code>{filename}</code> \n\nSelect the desired option below 😇",
+        text=f"<b>File Name</b> : <code>{filename}</code> \n\nSelect the desired option below 👇",
         reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="📝 RENAME 📝", callback_data="rename")],
                                                 [InlineKeyboardButton(text="✖️ CANCEL ✖️", callback_data="cancel")]]),
         parse_mode="html",
@@ -260,7 +256,7 @@ async def force_name(bot, message):
         reply_to_message_id=message.reply_to_message.message_id,
         reply_markup=ForceReply(True)
     )
-    
+    Yu
 async def rename(bot, message):    
     mssg = await bot.get_messages(message.chat.id, message.reply_to_message.message_id)
     media = mssg.reply_to_message    
